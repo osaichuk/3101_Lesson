@@ -47,26 +47,26 @@
         // }
         
         
-        $student = [
-            'name' => 'Andy',
-            'age' => 25,
-            'city' => 'SF'
-        ];
+        // $student = [
+        //     'name' => 'Andy',
+        //     'age' => 25,
+        //     'city' => 'SF'
+        // ];
 
-        var_dump($student);
+        // var_dump($student);
 
-        foreach ($student as &$value) {
-            $value = rand(1,20);
-            // echo "{$value} ";
-        }
-        // unset($value);
+        // foreach ($student as &$value) {
+        //     $value = rand(1,20);
+        //     // echo "{$value} ";
+        // }
+        // // unset($value);
         
-        $value = 'Hello';
+        // $value = 'Hello';
         
-        var_dump($student);
+        // var_dump($student);
         
         
-        
+        echo 'one <br>' . print 'two <br>';
         
         
         // $a = & $b;
