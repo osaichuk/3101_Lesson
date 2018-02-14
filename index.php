@@ -5,17 +5,33 @@
 </head>
 <body>
     <?php 
-        // notice, warning, fatal error, parse error
-        // int, float, string, boolean + type casting
-        // !, && (*), || (+)
-        // <, >, >= , <=, ==, !=, ===, !== 
         
-        $a = 123;
+        // $i = 0;
         
-        echo $a;
-        var_dump($a);
+        // do {
+        //     $a = rand(1, 100);
+        //     echo "{$a} <br>";
+        //     echo ++$i;
+        //     echo '<br> ----- <br>';
+        // } while ($i < 10);
         
-        //two
+        
+        for ($i = 0; $i < 1000; $i++) {
+            $a = rand(1, 5);
+            
+            if ($a == 3) {
+                exit('B');
+            }
+            
+            echo "{$a} <br>";
+            echo $i;
+            echo '<br> ----- <br>';
+        }
+        
+        
+        
+        
+        
     ?>
 </body>
 </html>
