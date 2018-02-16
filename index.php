@@ -96,7 +96,7 @@
     </div>
     
     <?php if (rand(-1, 1)) : ?>
-        <h1>Hello</h1>
+        <h1>Hello world</h1>
     <?php endif ?>
 
     <table class="table table-hover">
@@ -104,7 +104,7 @@
           <tr>
             <th>Firstname</th>
             <th>Lastname</th>
-            <th>Email</th>
+            <th>Email address</th>
           </tr>
         </thead>
         <tbody>
