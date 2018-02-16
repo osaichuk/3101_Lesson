@@ -1,23 +1,39 @@
 <?php
-    $employees = [];
+    define('EMPLOYEES_AMOUNT', 10);
 
-    $e1 = [
-        'first_name' => 'Andy',
-        'last_name' => 'Anderson',
-        'email' => 'andy@gmail.com'
-    ];
+    $employees = [];
     
-    $employees[] = $e1;
+    $first_names = ['Mike', 'Marie', 'Sarah', 'Jack', 'Andy'];
+    $last_names = ['Anderson', 'Smith', 'Mulder', 'Thompson', 'Sweinsteiger'];
+    $email_domains = ['google.com', 'yahoo.com', 'bing.com'];
     
-    $e2 = [
-        'first_name' => 'Andy2',
-        'last_name' => 'Anderson2',
-        'email' => 'andy@gmail.com2'
-    ];
+    $max_index_first_names = count($first_names) - 1;
+    $max_index_last_names = count($last_names) - 1;
+    $max_index_emails = count($email_domains) - 1;
     
-    $employees[] = $e2;
-    
-    // var_dump($employees);
+    for ($i = 1; $i <= EMPLOYEES_AMOUNT; $i++) {
+        $index_first_name = rand(0, $max_index_first_names);
+        $index_last_name = rand(0, $max_index_last_names);
+        $index_email = rand(0, $max_index_emails);
+        
+        $first_name = $first_names[$index_first_name];
+        $last_name = $last_names[$index_last_name];
+        $email = $email_domains[$index_email];
+        
+        $email = strtolower($first_name . '-' . $last_name) 
+            . rand(1900, 2000) 
+            . '@' 
+            . $email
+        ;
+        
+        $employee = [
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'email' => $email,
+        ];
+        
+        $employees[] = $employee;
+    }
 
 ?>
 
@@ -93,8 +109,8 @@
         </thead>
         <tbody>
             
-            <?php foreach ($employees as $employee) : ?>
-                <tr>
+            <?php foreach ($employees as $key => $employee) : ?>
+                <tr <?=$key % 2 ? 'class="gray"' : '' ?> >
                     <td><?=$employee['first_name'] ?></td>
                     <td><?=$employee['last_name'] ?></td>
                     <td><?=$employee['email'] ?></td>
