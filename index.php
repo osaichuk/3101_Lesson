@@ -104,7 +104,7 @@
           <tr>
             <th>Firstname</th>
             <th>Lastname</th>
-            <th>Email address</th>
+            <th>Email mega address</th>
           </tr>
         </thead>
         <tbody>
