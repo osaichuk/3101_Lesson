@@ -6,8 +6,6 @@
 <body>
     <?php 
 
-// test line
-
         
         // $a = 'Hello';
         // echo "global {$a} <br>";
