@@ -1,36 +1,47 @@
 <?php
+    
     define('EMPLOYEES_AMOUNT', 10);
-
-    $employees = [];
     
-    $first_names = ['Mike', 'Marie', 'Sarah', 'Jack', 'Andy'];
-    $last_names = ['Anderson', 'Smith', 'Mulder', 'Thompson', 'Sweinsteiger'];
-    $email_domains = ['google.com', 'yahoo.com', 'bing.com'];
-    
-    $max_index_first_names = count($first_names) - 1;
-    $max_index_last_names = count($last_names) - 1;
-    $max_index_emails = count($email_domains) - 1;
-    
-    for ($i = 1; $i <= EMPLOYEES_AMOUNT; $i++) {
-        $index_first_name = rand(0, $max_index_first_names);
-        $index_last_name = rand(0, $max_index_last_names);
-        $index_email = rand(0, $max_index_emails);
-        
-        $first_name = $first_names[$index_first_name];
-        $last_name = $last_names[$index_last_name];
-        $email = $email_domains[$index_email];
-        
-        $email = strtolower($first_name . '-' . $last_name) 
+    function generateEmail($firstName, $lastName, $email)
+    {
+        return strtolower($firstName . '-' . $lastName) 
             . rand(1900, 2000) 
             . '@' 
             . $email
-        ;
-        
-        $employee = [
-            'first_name' => $first_name,
-            'last_name' => $last_name,
+        ;  
+    }
+    
+    function getMaxIndex(array $arr)
+    {
+        return count($arr) - 1;  
+    }
+    
+    function createEmployee($firstName, $lastName, $email)
+    {
+        return [
+            'first_name' => $firstName,
+            'last_name' => $lastName,
             'email' => $email,
-        ];
+        ];  
+    }
+
+    $employees = [];
+    
+    $firstNames = ['Mike', 'Marie', 'Sarah', 'Jack', 'Andy'];
+    $lastNames = ['Anderson', 'Smith', 'Mulder', 'Thompson', 'Sweinsteiger'];
+    $emailDomains = ['google.com', 'yahoo.com', 'bing.com'];
+    
+    for ($i = 1; $i <= EMPLOYEES_AMOUNT; $i++) {
+        $indexFirstName = rand(0, getMaxIndex($firstNames));
+        $indexLastName = rand(0, getMaxIndex($lastNames));
+        $indexEmail = rand(0, getMaxIndex($emailDomains));
+        
+        $firstName = $firstNames[$indexFirstName];
+        $lastName = $lastNames[$indexLastName];
+        $email = $emailDomains[$indexEmail];
+        
+        $email = generateEmail($firstName, $lastName, $email);
+        $employee = createEmployee($firstName, $lastName, $email);
         
         $employees[] = $employee;
     }

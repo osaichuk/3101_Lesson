@@ -5,90 +5,66 @@
 </head>
 <body>
     <?php 
+
         
-        // $i = 0;
-        
-        // do {
-        //     $a = rand(1, 100);
-        //     echo "{$a} <br>";
-        //     echo ++$i;
-        //     echo '<br> ----- <br>';
-        // } while ($i < 10);
-        
-        
-        // for ($i = 0; $i < 1000; $i++) {
-        //     $a = rand(1, 5);
+        // $a = 'Hello';
+        // echo "global {$a} <br>";
+
+        // function test($a)
+        // {
+        //     $a = 345345;
+        //     echo "local {$a} <br>";
             
-        //     if ($a == 3) {
-        //         exit('B');
-        //     }
-            
-        //     echo "{$a} <br>";
-        //     echo $i;
-        //     echo '<br> ----- <br>';
+        //     return 'Bye';
         // }
         
-        
-        
-        // boolean, int, float, string, null - scalar
-        // array
-        
-        // implode explode
-        
-        // $a = [35, false, 123, [-1.2, true, 'yay']]; 
-        // $length = count($a);
-        // for ($i = 0; $i < $length; $i++) {
-        //     echo var_dump($a[$i]);
-        //     if (is_array($a[$i])) {
-        //         for ($j = 0; $j < count($a[$i]); $j++) {
-        //             var_dump($a[$i][$j]);
+        // echo test($a);
+        // echo "<br> global {$a}";
+ 
+ 
+        // function a()
+        // {
+        //     echo 'a';
+            
+        //     if (!function_exists('b')) {
+        //         function  b()
+        //         {
+        //             echo 'b';
         //         }
         //     }
         // }
         
-        
-        // $student = [
-        //     'name' => 'Andy',
-        //     'age' => 25,
-        //     'city' => 'SF'
-        // ];
-
-        // var_dump($student);
-
-        // foreach ($student as &$value) {
-        //     $value = rand(1,20);
-        //     // echo "{$value} ";
-        // }
-        // // unset($value);
-        
-        // $value = 'Hello';
-        
-        // var_dump($student);
+        // a();
+        // a();
+        // b();
         
         
-        echo 'one <br>' . print 'two <br>';
+        function isPrime($number)
+        {
+            if (!is_numeric($number)) {
+                return false;
+            }
+            
+            if ($number < 2) {
+                return false;
+            }
+            
+            if ($number <= 3) {
+                return true;
+            }
+            
+            for ($i = 2; $i < $number; $i++) {
+                if ($number % $i == 0) {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
         
-        
-        // $a = & $b;
-        
-        // $b = 1;
-        
-        // var_dump($a, $b);
-        
-        // $a = 350;
-        
-        // var_dump($a, $b);
-        
-        // $b = 100;
-        
-        // var_dump($a, $b);
-        
-        
-        
-        
-        
-        
-      
+        for ($i = 1; $i <= 100; $i++) {
+            var_dump($i, isPrime($i));
+        }
     ?>
 </body>
 </html>
