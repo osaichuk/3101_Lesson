@@ -1,15 +1,12 @@
 <?php
 
-function test($a, $b = 2, $c = 3, $d = 4)
-{
-    return $a + $b; // $b = 10
-}
+$fp = fopen('test.txt', 'r');
 
-function test(array $a)
-{
-    
-}
+fseek($fp, 5);
+// fwrite($fp, 'Hello world' . PHP_EOL);
 
-echo test(12, 4, 7, 7);
+$text = fread($fp, 3);
 
+var_dump($text);
 
+fclose($fp);
