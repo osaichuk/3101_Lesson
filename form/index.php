@@ -1,5 +1,10 @@
 <?php
 
+// setcookie('test-form', 456);
+// setcookie('est-global', 678, 0, '/');
+
+var_dump($_COOKIE);
+
 require_once 'functions.php';
 
 $message = requestGet('message'); // $_GET['message']
