@@ -1,5 +1,14 @@
 <?php
 
+function requestFiles($key)
+{
+    if (isset($_FILES[$key])) {
+        return $_FILES[$key];
+    }
+    
+    return null;
+}
+
 function requestGet($key)
 {
     if (isset($_GET[$key])) {
