@@ -84,7 +84,7 @@ if ($_POST) {
         $message = 'Saved';
         move_uploaded_file($_FILES['image']['tmp_name'], $filename);
         
-        redirect('/form/create-product.php?message=' . $message); //die
+        redirect('/3101/Backend/lesson/form/create-product.php?message=' . $message); //die
     }
     
     $message = 'Form invalid';
