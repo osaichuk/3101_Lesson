@@ -15,7 +15,7 @@ if ($_POST) {
     if (isNumberPositive($number)) {
         $message = isPrime($number) ? 'Prime' : 'Not prime';
         
-        redirect('/form?message=' . $message); //die
+        redirect('/3101/Backend/lesson/form?message=' . $message); //die
     }
     
     $message = 'Invalid';
