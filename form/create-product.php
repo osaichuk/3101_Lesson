@@ -47,7 +47,7 @@ if ($_POST) {
         saveProduct($product);
         $message = 'Saved';
         
-        redirect('/form/create-product.php?message=' . $message); //die
+        redirect('/3101/Backend/lesson/form/create-product.php?message=' . $message); //die
     }
     
     $message = 'Form invalid';
