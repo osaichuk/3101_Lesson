@@ -31,20 +31,29 @@ function isValuesValid($title, $price, $file)
     if (!isset($file['error'])) {
         return false;
     }
-    
+    $messageTitle = $messagePrice = $messageFile = '';
     $allowedFormats = [IMAGE_JPG, IMAGE_PNG];
     $textFieldsValid = !empty($title) && !empty($price);
     $imageTypeValid = in_array($file['type'], $allowedFormats);
-    
-    return !$file['error'] && $imageTypeValid && $textFieldsValid;
-    // return ['result' => true / false, 'message' => 'sdf sdfsdf sd']
+
+    if (empty($title)){
+        $messageTitle = 'fill the title';
+    } if (empty($price)){
+        $messagePrice = 'fill the price';
+    } if (!$imageTypeValid){
+        $messageFile = 'upload a picture format .jpg or .png';
+    }
+    $result =  !$file['error'] && $imageTypeValid && $textFieldsValid;
+
+    return ['result' => $result, 'messageTitle' => $messageTitle, 'messagePrice' => $messagePrice, 'messageFile' => $messageFile];
 }
 
-function createProduct($title, $price, $description = null)
+function createProduct($title, $price, $image, $description = null)
 {
     return [
         'title' => $title,
         'price' => $price,
+        'image' => $image,
         'description' => $description,
     ];
     // return compact('title', 'price', 'description');
@@ -75,19 +84,19 @@ $description = requestPost('description');
 $file = requestFiles('image');
 
 if ($_POST) {
-    
+
     $validation = isValuesValid($title, $price, $file);
-    if ($validation) {
-        $product = createProduct($title, $price, $description);
-        saveProduct($product);
+    if ($validation['result']) {
         $filename = getFilename($file);
+        $product = createProduct($title, $price, $filename, $description);
+        saveProduct($product);
         $message = 'Saved';
-        move_uploaded_file($_FILES['image']['tmp_name'], $filename);
+        move_uploaded_file($_FILES['image']['tmp_name'], "img/$filename");
         
         redirect('/3101/Backend/lesson/form/create-product.php?message=' . $message); //die
     }
     
-    $message = 'Form invalid';
+    $message = "Form invalid<br>";
 }
 
 require 'create-product-layout.phtml';

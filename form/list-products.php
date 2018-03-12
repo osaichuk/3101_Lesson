@@ -12,5 +12,5 @@ function loadProducts()
     return unserialize($products);
 }
 $products = loadProducts();
-
+//var_dump($products);
 require_once 'list-product-layout.phtml';
